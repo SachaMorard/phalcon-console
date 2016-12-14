@@ -1,0 +1,23 @@
+{
+    "name": "sachoo/phalcon-console",
+    "type": "library",
+    "description": "Based on phalcon devtools, this tools provide you useful scripts to generate code, migrate your models, helping to develop faster and easy applications that use with Phalcon framework based on sachoo/phalcon-start component.",
+    "keywords": ["framework", "phalcon", "command", "cli", "console", "migration"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sacha Morard",
+            "email": "sachamorard@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5",
+        "ext-phalcon": "^3.0"
+    },
+    "autoload": {
+        "psr-4" : {
+            "Phalcon\\" : "scripts/Phalcon/"
+        }
+    },
+    "bin": ["console.php"]
+}

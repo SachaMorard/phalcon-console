@@ -3,7 +3,6 @@
 
 use Phalcon\Script;
 use Phalcon\Script\Color;
-use Phalcon\Devtools\Version;
 use Phalcon\Commands\Builtin\Info;
 use Phalcon\Commands\Builtin\Model;
 use Phalcon\Commands\Builtin\Module;
@@ -33,14 +32,7 @@ try {
     $commandsToEnable = [
         Info::class,
         Enumerate::class,
-        Controller::class,
-        Module::class,
-        Model::class,
-        AllModels::class,
-        Project::class,
-        Scaffold::class,
-        Migration::class,
-        Webtools::class,
+        Migration::class
     ];
 
     $script->loadUserScripts();

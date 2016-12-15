@@ -1,6 +1,6 @@
 # Phalcon Commands
 
-[![Latest Version](https://img.shields.io/packagist/v/sachoo/phalcon-console.svg?style=flat-square)][:devtools:]
+[![Latest Version](https://img.shields.io/packagist/v/sachoo/phalcon-console.svg?style=flat-square)][:console:]
 [![Software License](https://img.shields.io/badge/license-BSD--3-brightgreen.svg?style=flat-square)][:license:]
 [![Total Downloads](https://img.shields.io/packagist/dt/sachoo/phalcon-console.svg?style=flat-square)][:packagist:]
 [![Daily Downloads](https://img.shields.io/packagist/dd/sachoo/phalcon-console.svg?style=flat-square)][:packagist:]
@@ -42,7 +42,7 @@ php composer.phar install
 To get a list of available commands just execute following:
 
 ```bash
- commands help
+ vendor/bin/console.php
 ```
 
 This command should display something similar to:
@@ -53,14 +53,10 @@ $ phalcon --help
 Phalcon Console (1.0.0)
 
 Help:
-  Lists the commands available in Phalcon devtools
+  Lists the commands available in Console
 
 Available commands:
   info             (alias of: i)
   commands         (alias of: list, enumerate)
-  controller       (alias of: create-controller)
-  module           (alias of: create-module)
-  model            (alias of: create-model)
-  all-models       (alias of: create-all-models)
-  migration        (alias of: create-migration)
+  mig              (alias of: migration)
 ```

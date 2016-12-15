@@ -31,5 +31,5 @@
     },
     "extra": {
         "class": "Phalcon\\ConsoleInstaller"
-    },
+    }
 }

@@ -29,7 +29,9 @@
             "Phalcon\\" : "Library/Phalcon/"
         }
     },
-    "extra": {
-        "class": "Phalcon\\ConsoleInstaller"
+    "scripts": {
+        "post-update-cmd": "php -r \"copy('console.exemple.php', '../../../console.exemple.php');\"",
+        "post-install-cmd": "php -r \"copy('console.exemple.php', '../../../console.exemple.php');\"",
+        "post-autoload-dump": "php -r \"copy('console.exemple.php', '../../../console.exemple.php');\""
     }
 }

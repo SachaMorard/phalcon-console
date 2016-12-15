@@ -9,9 +9,9 @@ use Phalcon\Commands\Builtin\Migration;
 use Phalcon\Commands\Builtin\Enumerate;
 use Phalcon\Exception as PhalconException;
 use Phalcon\Events\Manager as EventsManager;
-use Commands\MyCommand;
 
 try {
+    // Bellow, include your bootstrap
     require __DIR__ . '/app/bootstrap_cli.php';
 
     $eventsManager = new EventsManager();
@@ -24,7 +24,7 @@ try {
         Info::class,
         Enumerate::class,
         Migration::class,
-        MyCommand::class
+        // ADD Your own commands Here
     ];
 
     $script->loadUserScripts();

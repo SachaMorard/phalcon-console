@@ -90,5 +90,5 @@ Usage: Generate migration file with Diff beetween Models and your Databases
   mig diff
 
 Usage: Show migration status
-  mig status            (alias of: migration)
+  mig status
 ```

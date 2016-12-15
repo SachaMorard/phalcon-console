@@ -4,24 +4,15 @@
 use Phalcon\Script;
 use Phalcon\Script\Color;
 use Phalcon\Commands\Builtin\Info;
-use Phalcon\Commands\Builtin\Model;
-use Phalcon\Commands\Builtin\Module;
-use Phalcon\Commands\Builtin\Project;
-use Phalcon\Commands\Builtin\Scaffold;
 use Phalcon\Commands\CommandsListener;
-use Phalcon\Commands\Builtin\Webtools;
-use Phalcon\Commands\Builtin\AllModels;
 use Phalcon\Commands\Builtin\Migration;
 use Phalcon\Commands\Builtin\Enumerate;
-use Phalcon\Commands\Builtin\Controller;
 use Phalcon\Exception as PhalconException;
 use Phalcon\Events\Manager as EventsManager;
+use Commands\MyCommand;
 
 try {
-    require dirname(__FILE__) . '/bootstrap/autoload.php';
-
-    $vendor = sprintf('Phalcon DevTools (%s)', Version::get());
-    print PHP_EOL . Color::colorize($vendor, Color::FG_GREEN, Color::AT_BOLD) . PHP_EOL . PHP_EOL;
+    require __DIR__ . '/app/bootstrap_cli.php';
 
     $eventsManager = new EventsManager();
 
@@ -32,7 +23,8 @@ try {
     $commandsToEnable = [
         Info::class,
         Enumerate::class,
-        Migration::class
+        Migration::class,
+        MyCommand::class
     ];
 
     $script->loadUserScripts();

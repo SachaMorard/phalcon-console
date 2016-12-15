@@ -29,5 +29,7 @@
             "Phalcon\\" : "Library/Phalcon/"
         }
     },
-    "bin": ["console.php"]
+    "extra": {
+        "class": "Phalcon\\ConsoleInstaller"
+    },
 }

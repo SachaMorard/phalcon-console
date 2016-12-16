@@ -3,32 +3,20 @@
 
 use Phalcon\Script;
 use Phalcon\Script\Color;
-use Phalcon\Commands\Builtin\Info;
 use Phalcon\Commands\CommandsListener;
-use Phalcon\Commands\Builtin\Migration;
-use Phalcon\Commands\Builtin\Enumerate;
 use Phalcon\Exception as PhalconException;
 use Phalcon\Events\Manager as EventsManager;
 
 try {
-    // Bellow, include your bootstrap
+    // Bellow, include your bootstrap, for example:
     require __DIR__ . '/app/bootstrap_cli.php';
 
     $eventsManager = new EventsManager();
-
     $eventsManager->attach('command', new CommandsListener());
-
     $script = new Script($eventsManager);
-
-    $commandsToEnable = [
-        Info::class,
-        Enumerate::class,
-        Migration::class,
-        // ADD Your own commands Here
-    ];
-
     $script->loadUserScripts();
 
+    $commandsToEnable = $di->get('config')->commandsToEnable;
     foreach ($commandsToEnable as $command) {
         $script->attach(new $command($script, $eventsManager));
     }

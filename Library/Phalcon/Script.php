@@ -23,6 +23,8 @@ namespace Phalcon;
 
 use DirectoryIterator;
 use Phalcon\Commands\Command;
+use Phalcon\Di\Injectable;
+use Phalcon\Events\ManagerInterface;
 use Phalcon\Script\ScriptException;
 use Phalcon\Events\Manager as EventsManager;
 
@@ -33,7 +35,7 @@ use Phalcon\Events\Manager as EventsManager;
  *
  * @package Phalcon
  */
-class Script
+class Script extends Injectable
 {
     /**
      * Events Manager
@@ -50,9 +52,8 @@ class Script
     protected $_commands;
 
     /**
-     * Script Constructor
-     *
-     * @param \Phalcon\Events\Manager $eventsManager
+     * Script constructor.
+     * @param EventsManager $eventsManager
      */
     public function __construct(EventsManager $eventsManager)
     {
@@ -61,11 +62,9 @@ class Script
     }
 
     /**
-     * Events Manager
-     *
-     * @param \Phalcon\Events\Manager $eventsManager
+     * @param ManagerInterface $eventsManager
      */
-    public function setEventsManager(EventsManager $eventsManager)
+    public function setEventsManager(ManagerInterface $eventsManager)
     {
         $this->_eventsManager = $eventsManager;
     }

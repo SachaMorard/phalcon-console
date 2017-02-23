@@ -58,7 +58,7 @@ class CommandsListener
 
         if ($command->canBeExternal() == false) {
             $path = $command->getOption('directory');
-            if (!file_exists($path.'.phalcon') || !is_dir($path.'.phalcon')) {
+            if (!file_exists($path.'.phalcon')) {
                 throw new CommandsException('This command should be invoked inside a Phalcon project directory.');
             }
         }

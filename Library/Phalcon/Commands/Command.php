@@ -194,10 +194,9 @@ abstract class Command implements CommandsInterface
         $param = '';
         $paramName = '';
         $receivedParams = [];
-        $numberArguments = count($_SERVER['argv']);
+        $i = 1;
 
-        for ($i = 1; $i < $numberArguments; $i++) {
-            $argv = $_SERVER['argv'][$i];
+        foreach ($_SERVER['argv'] as $argv) {
             if (preg_match('#^([\-]{1,2})([a-zA-Z0-9][a-zA-Z0-9\-]*)(=(.*)){0,1}$#', $argv, $matches)) {
                 if (strlen($matches[1]) == 1) {
                     $param = substr($matches[2], 1);
@@ -243,6 +242,7 @@ abstract class Command implements CommandsInterface
                     $paramName = '';
                 } else {
                     $receivedParams[$i - 1] = $param;
+                    $i++;
                     $param = '';
                 }
             }

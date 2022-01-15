@@ -195,8 +195,10 @@ abstract class Command implements CommandsInterface
         $paramName = '';
         $receivedParams = [];
         $i = 1;
+        // ignore first arg which is 'console' or './console' and keep original indices
+        $args = \array_slice($_SERVER['argv'], 1, \count($_SERVER['argv']) - 1, true);
 
-        foreach ($_SERVER['argv'] as $argv) {
+        foreach ($args as $argv) {
             if (preg_match('#^([\-]{1,2})([a-zA-Z0-9][a-zA-Z0-9\-]*)(=(.*)){0,1}$#', $argv, $matches)) {
                 if (strlen($matches[1]) == 1) {
                     $param = substr($matches[2], 1);

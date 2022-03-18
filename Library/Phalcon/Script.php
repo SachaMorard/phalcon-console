@@ -107,8 +107,11 @@ class Script extends Injectable
      */
     public function dispatch(Command $command)
     {
-        // If beforeCommand fails abort
-        if ($this->_eventsManager->fire('command:beforeCommand', $command) === false) {
+        $this->_eventsManager->collectResponses(true);
+        $this->_eventsManager->fire('command:beforeCommand', $command);
+
+        // If one of beforeCommand fails, then abort
+        if (false !== array_search(false, $this->_eventsManager->getResponses(), true)) {
             return false;
         }
 
